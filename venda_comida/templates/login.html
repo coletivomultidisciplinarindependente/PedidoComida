@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+  <head>
+
+     <title>
+     Login
+ 	</title>
+        
+    {% load static %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+  </head>
+
+    <body  data-media-url="{% get_media_prefix %}">
+
+
+    <div id="colorlib-page">
+
+
+        <!-- END COLORLIB-ASIDE -->
+
+
+<section id="login" class="section registration">
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h4><a href="/">
+                        <img src="{% static 'logo.jpg' %}" alt="" class="pic" width="100" height="100">
+                        </a></h4>
+        <br>
+        <br>
+        <h4>Login</h4>
+        <div class="blankdivider30">
+        </div>
+
+        <div class="cform" id="contact-form">
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
+            {% if erro_formulario %}
+                {% for erro in erro_formulario %}
+                    <p class="error-message">Informe o {{ erro }}</p>
+
+                {% endfor %}
+            {% endif %}
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <div class="container">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Email invalido"/>
+                            <div class="validation"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Senha" data-rule="required" data-msg="Digite a senha" />
+                            <div class="validation"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-theme pull-left btn-primary">
+                        Entrar
+                        </button>
+                        <!-- <input type="submit" value="Logar" class="btn btn-theme pull-left btn-primary"> -->
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <br/>
+                        <br/>
+
+                          <a href="" class="text-danger" href='' onclick="this.href='/resetar_senha/'+document.getElementById('email').value">
+
+                              Esqueci a senha desse email
+
+                          </a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+    </div><!-- END COLORLIB-PAGE -->
+
+
+
+  </body>
+
+  
+</html>

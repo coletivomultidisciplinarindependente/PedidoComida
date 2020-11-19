@@ -1,0 +1,34 @@
+
+PAGINA RESTAURANTE
+
+
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+
+{{restaurante.nome}}
+
+
+<hr/>
+
+
+<hr/>
+
+{{restaurante.endereco.cep}}
+
+
+<hr/>
+
+{% for classe in classes %}
+
+	{{ classe.nome }}
+	
+	<hr/>
+
+	{% for produto in classe.produtos.all %}
+		{{produto.preco}}
+	{% endfor %}
+{% endfor %}
+
+
